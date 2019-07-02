@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">My coding challenge Intent</string>
+    <string name="action_settings">Settings</string>
+    <string name="first_text">First Text</string>
+    <string name="text">Text</string>
+    <string name="third_text">Third Text</string>
+    <string name="article_text_1">In a vault deep inside Abbey Road Studios in London — protected by an unmarked, triple-locked, police-alarmed door — are something like 400 hours of unreleased Beatles recordings, starting from June 2, 1962 and ending with the very last tracks recorded for the <i>Let It Be</i> album. The best of the best were released by Apple Records in the form of the 3-volume Anthology series.
+    For more information, see the Beatles Time Capsule at www.rockument.com.</string>
+    <string name="article_text_2">Cry for a Shadow - Many a Beatle fanatic started down the outtake road, like I did, with a first listen to this song.
+        Originally titled “Beatle Bop” and recorded in a single session that yielded four songs (the other three featured Tony Sheridan with the Beatles as a backing band), “Cry for a Shadow” is an instrumental written by Lennon and Harrison,
+    which makes it unique to this day. John Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar,
+        getResources().getString(getResources().getString(George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar,
+        getResources().getString(getResources().getString(George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar,
+        getResources().getString(getResources().getString(George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar,
+        getResources().getString(getResources().getString(George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar, George Harrison playsJohn Lennon plays rhythm guitar,
+        George Harrison playsJohn Lennon plays rhythm guitar, George Harrison plays
+    lead guitar, Paul McCartney plays bass, and Pete Best plays drums. The sessions were produced by Bert
+    Kaempfert in Hamburg, Germany, during the Beatles’ second visit from April through July of 1961 to play in the Reeperbahn-section clubs.
+    </string>
+    <string name="article_text_3">Paul McCartney plays bass, and Pete Best plays drums. The sessions were produced by Bert
+    Kaempfert in Hamburg, Germany, during the Beatles’ second visit from April through July of 1961 to play in the Reeperbahn-section clubs.</string>
+    <string name="second_text">second text</string>
+</resources>
