@@ -9,6 +9,7 @@ public class TextScrollViewActivity extends AppCompatActivity {
     public static final String EXTRA_FIRST_TEXT = "com.bravedroid.android.mycodingchallengeintent.extra.FIRST_TEXT";
     public static final String EXTRA_SECOND_TEXT = "com.bravedroid.android.mycodingchallengeintent.extra.SECOND_TEXT";
     public static final String EXTRA_THIRD_TEXT = "com.bravedroid.android.mycodingchallengeintent.extra.THIRD_TEXT";
+    private static final int NOT_FOUND = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,15 +17,15 @@ public class TextScrollViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_text_scroll_view);
         TextView mText = findViewById(R.id.textView);
         Intent intent = getIntent();
-        String text1 = intent.getStringExtra(EXTRA_FIRST_TEXT);
-        String text2 = intent.getStringExtra(EXTRA_SECOND_TEXT);
-        String text3 = intent.getStringExtra(EXTRA_THIRD_TEXT);
+        int idText1 = intent.getIntExtra(EXTRA_FIRST_TEXT, NOT_FOUND);
+        int idText2 = intent.getIntExtra(EXTRA_SECOND_TEXT, NOT_FOUND);
+        int idText3 = intent.getIntExtra(EXTRA_THIRD_TEXT, NOT_FOUND);
 
-        if (text1 != (null)) {
+        if (idText1 != NOT_FOUND) {
             mText.setText(R.string.article_text_1);
-        } else if ((text2 != (null))) {
+        } else if ((idText2 != NOT_FOUND)) {
             mText.setText(R.string.article_text_2);
-        } else if (text3 != (null)) {
+        } else if (idText3 != NOT_FOUND) {
             mText.setText(R.string.article_text_3);
         }
     }
