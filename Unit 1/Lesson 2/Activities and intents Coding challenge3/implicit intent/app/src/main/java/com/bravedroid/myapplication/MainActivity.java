@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         mLocationEditText = findViewById(R.id.location_edittext);
         mShareTextEditText = findViewById(R.id.share_edittext);
     }
-
+    // region callbacks
     public void openWebsite(View view) {
         String url = mWebsiteEditText.getText().toString();
         Uri webpage = Uri.parse(url);
@@ -30,8 +30,7 @@ public class MainActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         } else {
-            Toast toast = Toast.makeText(this, "Can't handle this!", Toast.LENGTH_LONG);
-            toast.show();
+            Toast.makeText(this, "Can't handle this!", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -57,4 +56,5 @@ public class MainActivity extends AppCompatActivity {
                 .setText(txt)
                 .startChooser();
     }
+    // endregion callbacks
 }
