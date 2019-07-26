@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText mLocationEditText;
     private static final String RESULT = "result";
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     private static final int COMMON_SHOPPING_LIST_ACTIVITY_REQUEST_CODE = 1;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mLocationEditText = findViewById(R.id.location_editText);
         LinearLayout linearLayout = findViewById(R.id.myListShopping);
         LinearLayout.LayoutParams lparams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
@@ -96,6 +100,18 @@ public class MainActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         if (savedElementsList.size() > 0) {
             outState.putStringArrayList(MY_SHOPPING_LIST_KEY, savedElementsList);
+        }
+    }
+
+    public void locateParticularStore(View view) {
+        String loc = mLocationEditText.getText().toString();
+        Uri addressUri = Uri.parse("geo:0,0?q=" + loc);
+        Intent intent = new Intent(Intent.ACTION_VIEW, addressUri);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            Toast toast = Toast.makeText(this, "Can't handle this intent!", Toast.LENGTH_LONG);
+            toast.show();
         }
     }
 }
