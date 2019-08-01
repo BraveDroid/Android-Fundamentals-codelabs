@@ -100,38 +100,44 @@ public class CalculatorTest {
     public void divByZeroThrows() {
         mCalculator.div(2d, 0d);
     }
+
     @Test
-    public void powTwoNumbers(){
-        double resultPow = mCalculator.pow(5,4);
-        assertThat(resultPow, is(equalTo( 625d)));
-    }
-    @Test
-    public void powFirstOperandNegative(){
-        double resultPow = mCalculator.pow(-5,4);
-        assertThat(resultPow, is(equalTo( 625d)));
-    }
-    @Test
-    public void powSecondOperandNegative(){
-        double resultPow = mCalculator.pow(5,-4);
-        assertThat(resultPow, is(equalTo( 0.0016)));
+    public void powTwoNumbers() {
+        double resultPow = mCalculator.pow(5, 4);
+        assertThat(resultPow, is(equalTo(625d)));
     }
 
     @Test
-    public void powFirstOperandZero(){
-        double resultPow = mCalculator.pow(0,4);
-        assertThat(resultPow, is(equalTo( 0d)));
+    public void powFirstOperandNegative() {
+        double resultPow = mCalculator.pow(-5, 4);
+        assertThat(resultPow, is(equalTo(625d)));
     }
+
     @Test
-    public void powSecondOperandZero(){
-        double resultPow = mCalculator.pow(5,0);
-        assertThat(resultPow, is(equalTo( 1d)));
+    public void powSecondOperandNegative() {
+        double resultPow = mCalculator.pow(5, -4);
+        assertThat(resultPow, is(equalTo(0.0016)));
     }
-    @Test (expected = IllegalArgumentException.class)
-    public void  powFirstOperandZeroAndNegativeSecondOperand(){
-         mCalculator.pow(0,-1);
+
+    @Test
+    public void powFirstOperandZero() {
+        double resultPow = mCalculator.pow(0, 4);
+        assertThat(resultPow, is(equalTo(0d)));
     }
-    @Test (expected = IllegalArgumentException.class)
-    public void powNegativeZeroFirstOperandAndNegativeSecondOperand(){
-        mCalculator.pow(-0,-5);
+
+    @Test
+    public void powSecondOperandZero() {
+        double resultPow = mCalculator.pow(5, 0);
+        assertThat(resultPow, is(equalTo(1d)));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void powFirstOperandZeroAndNegativeSecondOperand() {
+        mCalculator.pow(0, -1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void powNegativeZeroFirstOperandAndNegativeSecondOperand() {
+        mCalculator.pow(-0, -5);
     }
 }

@@ -23,7 +23,7 @@ public class Calculator {
 
     // Available operations
     public enum Operator {
-        ADD, SUB, DIV, MUL
+        ADD, SUB, DIV, MUL, POW
     }
 
     /**
@@ -63,12 +63,10 @@ public class Calculator {
      * power operation
      */
     public double pow(double firstOperand, double secondOperand) {
-        if (firstOperand != 0 && secondOperand != -secondOperand) {
-            return Math.pow(firstOperand, secondOperand);
-        } else {
+        if ((firstOperand == 0.0 && secondOperand < 0.0) || firstOperand == -0 && secondOperand < 0) {
             throw new IllegalArgumentException();
+        } else {
+            return Math.pow(firstOperand, secondOperand);
         }
     }
-
-
 }
