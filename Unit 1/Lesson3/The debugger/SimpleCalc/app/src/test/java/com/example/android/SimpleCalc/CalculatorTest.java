@@ -25,6 +25,7 @@ import org.junit.runners.JUnit4;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.number.IsCloseTo.closeTo;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -53,6 +54,90 @@ public class CalculatorTest {
         assertThat(resultAdd, is(equalTo(2d)));
     }
 
+    @Test
+    public void addTwoNumbersNegative() {
+        double resultAdd = mCalculator.add(-1d, 2d);
+        assertThat(resultAdd, is(equalTo(1d)));
+    }
 
+    @Test
+    public void addTwoNumbersFloats() {
+        double resultAdd = mCalculator.add(1.111f, 1.111d);
+        assertThat(resultAdd, is(closeTo(2.222, 0.01)));
+    }
 
+    @Test
+    public void subTwoNumbers() {
+        double resultSub = mCalculator.sub(2d, 1d);
+        assertThat(resultSub, is(equalTo(1d)));
+    }
+
+    @Test
+    public void subWorksWithNegativeResults() {
+        double resultSub = mCalculator.sub(2d, 3d);
+        assertThat(resultSub, is(equalTo(-1d)));
+    }
+
+    @Test
+    public void mulTwoNumbers() {
+        double resultMul = mCalculator.mul(2d, 1d);
+        assertThat(resultMul, is(equalTo(2d)));
+    }
+
+    @Test
+    public void mulTwoNumbersZero() {
+        double resultMul = mCalculator.mul(2d, 0d);
+        assertThat(resultMul, is(equalTo(0d)));
+    }
+
+    @Test
+    public void divTwoNumbers() {
+        double resultDiv = mCalculator.div(2d, 1d);
+        assertThat(resultDiv, is(equalTo(2d)));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void divByZeroThrows() {
+        mCalculator.div(2d, 0d);
+    }
+
+    @Test
+    public void powTwoNumbers() {
+        double resultPow = mCalculator.pow(5, 4);
+        assertThat(resultPow, is(equalTo(625d)));
+    }
+
+    @Test
+    public void powFirstOperandNegative() {
+        double resultPow = mCalculator.pow(-5, 4);
+        assertThat(resultPow, is(equalTo(625d)));
+    }
+
+    @Test
+    public void powSecondOperandNegative() {
+        double resultPow = mCalculator.pow(5, -4);
+        assertThat(resultPow, is(equalTo(0.0016)));
+    }
+
+    @Test
+    public void powFirstOperandZero() {
+        double resultPow = mCalculator.pow(0, 4);
+        assertThat(resultPow, is(equalTo(0d)));
+    }
+
+    @Test
+    public void powSecondOperandZero() {
+        double resultPow = mCalculator.pow(5, 0);
+        assertThat(resultPow, is(equalTo(1d)));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void powFirstOperandZeroAndNegativeSecondOperand() {
+        mCalculator.pow(0, -1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void powNegativeZeroFirstOperandAndNegativeSecondOperand() {
+        mCalculator.pow(-0, -5);
+    }
 }

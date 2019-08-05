@@ -22,7 +22,9 @@ package com.example.android.SimpleCalc;
 public class Calculator {
 
     // Available operations
-    public enum Operator {ADD, SUB, DIV, MUL}
+    public enum Operator {
+        ADD, SUB, DIV, MUL, POW
+    }
 
     /**
      * Addition operation
@@ -42,7 +44,11 @@ public class Calculator {
      * Divide operation
      */
     public double div(double firstOperand, double secondOperand) {
-        return firstOperand / secondOperand;
+        if (firstOperand != 0 && secondOperand != 0) {
+            return firstOperand / secondOperand;
+        } else {
+            throw new IllegalArgumentException();
+        }
     }
 
     /**
@@ -50,5 +56,17 @@ public class Calculator {
      */
     public double mul(double firstOperand, double secondOperand) {
         return firstOperand * secondOperand;
+    }
+
+
+    /**
+     * power operation
+     */
+    public double pow(double firstOperand, double secondOperand) {
+        if ((firstOperand == 0.0 && secondOperand < 0.0) || firstOperand == -0 && secondOperand < 0) {
+            throw new IllegalArgumentException();
+        } else {
+            return Math.pow(firstOperand, secondOperand);
+        }
     }
 }

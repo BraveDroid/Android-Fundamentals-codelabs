@@ -88,6 +88,18 @@ public class MainActivity extends Activity {
         compute(Calculator.Operator.MUL);
     }
 
+    /**
+     * OnClick method called when the power Button is pressed.
+     */
+    public void onPow(View view) {
+        try {
+            compute(Calculator.Operator.POW);
+        } catch (IllegalArgumentException iae) {
+            Log.e(TAG, "IllegalArgumentException", iae);
+            mResultTextView.setText(getString(R.string.computationError));
+        }
+    }
+
     private void compute(Calculator.Operator operator) {
         double operandOne;
         double operandTwo;
@@ -100,7 +112,7 @@ public class MainActivity extends Activity {
                 mResultTextView.setText(getString(R.string.computationError));
                 return;
             }
-            String result;
+            String result = null;
             switch (operator) {
                 case ADD:
                     result = String.valueOf(
@@ -111,12 +123,25 @@ public class MainActivity extends Activity {
                             mCalculator.sub(operandOne, operandTwo));
                     break;
                 case DIV:
-                    result = String.valueOf(
-                            mCalculator.div(operandOne, operandTwo));
+                    if (operandOne != 0 && operandTwo != 0) {
+                        result = String.valueOf(
+                                mCalculator.div(operandOne, operandTwo));
+                    } else {
+                        Toast.makeText(this, "cannot divide by zero 0", Toast.LENGTH_LONG).show();
+                    }
                     break;
                 case MUL:
                     result = String.valueOf(
                             mCalculator.mul(operandOne, operandTwo));
+                    break;
+                case POW:
+                    if ((operandOne == 0.0 && operandTwo < 0.0) || operandOne == -0 && operandTwo < 0) {
+                        Toast.makeText(this, "operand one shouldn't be 0 and second operand shouldn't be negative", Toast.LENGTH_LONG).show();
+
+                    } else {
+                        result = String.valueOf(
+                                mCalculator.pow(operandOne, operandTwo));
+                    }
                     break;
                 default:
                     result = getString(R.string.computationError);
@@ -149,7 +174,6 @@ public class MainActivity extends Activity {
             Double.valueOf(operandText);
             isValidOperand = true;
         } catch (IllegalArgumentException ex) {
-            //Log.e(TAG, "NumberFormatException", ex);
             isValidOperand = false;
         }
         return isValidOperand;
